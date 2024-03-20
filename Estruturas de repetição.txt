@@ -1,0 +1,64 @@
+SET SERVEROUTPUT ON
+DECLARE
+    v_contador NUMBER(2):=1;
+BEGIN
+LOOP
+    dbms_output.put_line(v_contador);
+    v_contador := v_contador+1;
+    EXIT WHEN v_contador > 20;
+END LOOP;
+END;
+/
+
+DECLARE
+    v_contador NUMBER(2):=1;
+BEGIN
+    WHILE v_contador <=20 LOOP
+    dbms_output.put_line(v_contador);
+    v_contador := v_contador+1;
+END LOOP;
+END;
+/
+
+BEGIN
+FOR v_contador IN/*REVERSE*/ 1..20 LOOP
+    dbms_output.put_line(v_contador);
+END LOOP;
+END;
+/
+
+// Exercicio 1
+DECLARE
+    v_tabuada NUMBER(6):=&Numero;
+    v_multiplicador NUMBER(2):=1;
+BEGIN
+LOOP
+    dbms_output.put_line(v_multiplicador||'X'||v_tabuada||'='||v_tabuada * v_multiplicador);
+    v_multiplicador := v_multiplicador+1;
+    EXIT WHEN v_multiplicador = 11;
+END LOOP;
+END;
+/
+
+DECLARE
+    v_tabuada NUMBER(6):=&Numero;
+    v_contador NUMBER(2):=1;
+BEGIN
+    WHILE v_contador <=10 LOOP
+    dbms_output.put_line(v_contador||'X'||v_tabuada||'='||v_tabuada * v_contador);
+    v_contador := v_contador+1;
+END LOOP;
+END;
+/
+DECLARE
+    v_tabuada NUMBER(6):=&Numero;
+BEGIN
+FOR v_contador IN/*REVERSE*/ 1..10 LOOP
+    dbms_output.put_line(v_contador*v_tabuada);
+END LOOP;
+END;
+/
+
+//Exercicio 2
+/* Em um intervalo numérico inteiro, informar quantos
+ números são pares e quantos são impares*/
