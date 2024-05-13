@@ -4,7 +4,7 @@ set verify off
 
 --Praticando PL/SQL
 
--- Exercício de revisão 1
+-- ExercÃ­cio de revisÃ£o 1
 DECLARE
     nome VARCHAR2(10) :='Mateus';
     idade_v1 NUMBER(2) := 20;
@@ -13,12 +13,12 @@ DECLARE
 BEGIN
 
 idade_v2 := idade_v1 + 20;
-dbms_output.put_line('Meu nome é ' || nome || ' e tenho ' || idade_v1 || ' anos de idade, porém daqui há 20 anos terei ' || idade_v2 || ' anos de idade');
+dbms_output.put_line('Meu nome Ã© ' || nome || ' e tenho ' || idade_v1 || ' anos de idade, porÃ©m daqui hÃ¡ 20 anos terei ' || idade_v2 || ' anos de idade');
 
 END;
 /
 
--- Exercício de revisão 2
+-- ExercÃ­cio de revisÃ£o 2
 DECLARE
 
  salario_antigo Number(6,2) := 1250.00;
@@ -27,30 +27,31 @@ DECLARE
 BEGIN
  
  salario_atual := salario_antigo * 1.50;
- dbms_output.put_line('Meu salário antes de ser promovido era de R$' || salario_antigo || '. Porém meu sálario atual está no valor de R$' || salario_atual);
+ dbms_output.put_line('Meu salÃ¡rio antes de ser promovido era de R$' || salario_antigo || '. PorÃ©m meu sÃ¡lario atual estÃ¡ no valor de R$' || salario_atual);
  
  END;
  /
  
- ---- Exercício de revisão 3
+ ---- ExercÃ­cio de revisÃ£o 3
  
 DECLARE
     preco_jogo NUMBER(6,2) := 250.00;
     preco_parcelado preco_jogo%type;
 BEGIN
     preco_parcelado := preco_jogo / 2;
-    dbms_output.put_line('Parcelando o jogo em 2 vezes, o valor de cada parcela será de R$' || preco_parcelado);
+    dbms_output.put_line('Parcelando o jogo em 2 vezes, o valor de cada parcela serÃ¡ de R$' || preco_parcelado);
     
     preco_parcelado := preco_jogo / 4;
-    dbms_output.put_line('Parcelando o jogo em 4 vezes, o valor de cada parcela será de R$' || preco_parcelado);
+    dbms_output.put_line('Parcelando o jogo em 4 vezes, o valor de cada parcela serÃ¡ de R$' || preco_parcelado);
     
     preco_parcelado := preco_jogo / 6;
-    dbms_output.put_line('Parcelando o jogo em 6 vezes, o valor de cada parcela será de R$' || preco_parcelado);
+    dbms_output.put_line('Parcelando o jogo em 6 vezes, o valor de cada parcela serÃ¡ de R$' || preco_parcelado);
 END;
 /
 
--- Estruturas de decisão
--- if, then, elsif, then, else, end if]
+-- Estruturas de decisÃ£o
+-- if, then, elsif, then, else, end if
+-- ExercÃ­cio 1
 
 DECLARE
 v_num NUMBER(6):= '&numero';
@@ -58,12 +59,30 @@ v_num NUMBER(6):= '&numero';
 BEGIN
 
 IF(v_num)= 30 THEN
-    dbms_output.put_line('Você acertou o número da sorte!');
+    dbms_output.put_line('VocÃª acertou o nÃºmero da sorte!');
 ELSIF(v_num)> 30 THEN
-    dbms_output.put_line('Você errou o número, chute mais baixo!');
+    dbms_output.put_line('VocÃª errou o nÃºmero, chute mais baixo!');
 ELSE
-    dbms_output.put_line('Você errou o número, chute mais alto!');
+    dbms_output.put_line('VocÃª errou o nÃºmero, chute mais alto!');
 END IF;
 
 END;
 /
+
+-- ExercÃ­cio 2
+
+DECLARE
+
+v_nome VARCHAR2(25):= '&nome';
+v_idade NUMBER(6,2):= '&idade';
+
+BEGIN
+
+IF(v_idade < 18) THEN
+    dbms_output.put_line( v_nome ||' vocÃª tem ' || v_idade || ' portanto nÃ£o estÃ¡ apto Ã¡ servir ao exÃ©rcito');
+ELSE
+    dbms_output.put_line( v_nome ||' vocÃª tem ' || v_idade || ' portanto vocÃª estÃ¡ apto Ã¡ servir ao exÃ©rcito, continue seu cadastro para passar para as prÃ³ximas fases');
+END IF;
+END;
+/
+
